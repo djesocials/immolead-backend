@@ -1,0 +1,21 @@
+{
+  "century-21": {
+    "name": "Century 21",
+    "email": "etienne.delfau@gmail.com",
+    "logo_url": "https://www.century21.fr/theme/v6/images/no-photos/century21_no-photo-agency.jpg",
+    "sheet_id": "1Eww-MfLsCYJGisUIYEeLBibbGutQwrgmylq2kz0ZwfI",
+    "properties": [
+      {
+        "ref": "2675",
+        "title": "Maison à vendre 3 pièces - 106,50 m2",
+        "price": 222900,
+        "location": "Cuzance, Lot",
+        "surface": 106,
+        "rooms": 3,
+        "bedrooms": 2,
+        "description": "Laissez-vous surprendre par cette maison containers de 2023, lumineuse, pratique et très économe en dépense d'énergie. avec un DPE en classe A. La structure est isolée à l'intérieur, avec laine de roche et placo, ainsi qu'a l'extérieur avec laine de bois et bardage composit bois/béton de très haute qualité.\nLes espaces ont été conçus en U autour d'une terrasse avec de grandes baies vitrées. Le séjour lumineux avec cuisine ouverte fait 45 m². D'un côté, une suite parentale avec salle de bain, douche et dressing. De l'autre, une chambre, une salle d'eau et un cellier/buanderie. Climatisation réversible, assainissement individuel conforme. Vous profiterez de plus de 2000 m² de prairie. La terrasse et les abords de la maison sont à finir d'aménager,\nSituée dans un bel environnement avec vue sur la campagne. Vous serez à moins de 3 km de l'entrée de l'A20 et à 7 km de Martel.\n",
+        "image_url": "../../images/c21_202_3034_2675_1_1C15A205-8DF2-4ADD-81C7-1CE86841ECB4.webp"
+      }
+    ]
+  }
+}
