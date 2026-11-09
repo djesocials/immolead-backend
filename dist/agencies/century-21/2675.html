@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0F172A">
   <meta name="robots" content="noindex, nofollow">
-  <title>Maison à vendre 3 pièces - 106,50 m2 — Cuzance, Lot</title>
-  <meta name="description" content="Maison à vendre 3 pièces - 106,50 m2 à Cuzance, Lot · 106 m² · 3 pièces">
+  <title>Maison à vendre 3 pièces - 106,50 m² — Cuzance, Lot</title>
+  <meta name="description" content="Maison à vendre 3 pièces - 106,50 m² à Cuzance, Lot · 106 m² · 3 pièces">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,7 +95,7 @@
       <div class="relative aspect-[4/5] sm:aspect-[4/3] w-full overflow-hidden bg-navy-700">
         <img
           src="../../images/c21_202_3034_2675_1_1C15A205-8DF2-4ADD-81C7-1CE86841ECB4.webp"
-          alt="Maison à vendre 3 pièces - 106,50 m2"
+          alt="Maison à vendre 3 pièces - 106,50 m²"
           class="h-full w-full object-cover"
           loading="eager"
           fetchpriority="high"
@@ -117,7 +117,7 @@
           <span>Cuzance, Lot</span>
         </p>
         <h1 class="mt-2 font-serif text-[1.75rem] leading-tight font-semibold text-white">
-          Maison à vendre 3 pièces - 106,50 m2
+          Maison à vendre 3 pièces - 106,50 m²
         </h1>
       </div>
     </section>
@@ -257,7 +257,6 @@ Située dans un bel environnement avec vue sur la campagne. Vous serez à moins 
 
           <button type="submit" id="submit-btn"
             class="gold-shine relative mt-2 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-4 text-base font-bold text-navy shadow-lg shadow-gold/20 transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800">
-            <svg id="spinner" class="hidden h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" opacity=".25"/><path d="M22 12a10 10 0 0 0-10-10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
             <span id="submit-label">Envoyer ma demande</span>
           </button>
 
@@ -275,12 +274,10 @@ Située dans un bel environnement avec vue sur la campagne. Vous serez à moins 
 
       // ---- Config injected by Jinja2 ----
       var API_ENDPOINT = "https://immolead-backend.onrender.com";
-      var TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2VuY3lfZW1haWwiOiJldGllbm5lLmRlbGZhdUBnbWFpbC5jb20iLCJhZ2VuY3lfc2x1ZyI6ImNlbnR1cnktMjEiLCJwcm9wZXJ0eV9yZWYiOiIyNjc1IiwiaWF0IjoxNzk0MTM2ODgyLCJzaGVldF9pZCI6IjFFd3ctTWZMc0NZSkdpc1VJWUVlTEJpYmJHdXRRd3JnbXlscTJrejBad2ZJIn0.kAEodTd-vFYEqmqLPvTtsw-dfUKvpsaKOl24hai5YR0";
+      var TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2VuY3lfZW1haWwiOiJldGllbm5lLmRlbGZhdUBnbWFpbC5jb20iLCJhZ2VuY3lfc2x1ZyI6ImNlbnR1cnktMjEiLCJwcm9wZXJ0eV9yZWYiOiIyNjc1IiwiaWF0IjoxNzk0MTM4MDE1LCJzaGVldF9pZCI6IjFFd3ctTWZMc0NZSkdpc1VJWUVlTEJpYmJHdXRRd3JnbXlscTJrejBad2ZJIn0.CinqwNDAW6bpK6OWx8aa61PltO0dXD-_z545-6lcWaA";
       var LEADS_URL = String(API_ENDPOINT || '').replace(/\/+$/, '') + '/api/v1/leads';
 
-      var AUTO_CLOSE_MS = 1800;   // modal closes this long after success
       var TOAST_MS = 5000;        // toast visibility duration
-      var TIMEOUT_MS = 15000;     // network timeout
 
       // ---- Elements ----
       var modal = document.getElementById('visit-modal');
@@ -289,23 +286,16 @@ Située dans un bel environnement avec vue sur la campagne. Vous serez à moins 
       var openBtn = document.getElementById('open-modal');
       var closeBtn = document.getElementById('close-modal');
       var form = document.getElementById('lead-form');
-      var submitBtn = document.getElementById('submit-btn');
-      var submitLabel = document.getElementById('submit-label');
-      var spinner = document.getElementById('spinner');
       var toast = document.getElementById('toast');
 
-      var isSubmitting = false;
       var lastFocused = null;
       var toastTimer = null;
-      var closeTimer = null;
 
       // ---- Modal ----
       function openModal() {
         lastFocused = document.activeElement;
-        clearTimeout(closeTimer);
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
-        // next frame so transitions run
         requestAnimationFrame(function () {
           requestAnimationFrame(function () { modal.classList.add('modal-open'); });
         });
@@ -316,7 +306,6 @@ Située dans un bel environnement avec vue sur la campagne. Vous serez à moins 
       }
 
       function closeModal() {
-        if (isSubmitting) return;
         modal.classList.remove('modal-open');
         setTimeout(function () {
           modal.classList.add('hidden');
@@ -344,15 +333,11 @@ Située dans un bel environnement avec vue sur la campagne. Vous serez à moins 
 
       // ---- Toast ----
       var ICON_OK = '<svg class="h-5 w-5 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>';
-      var ICON_ERR = '<svg class="h-5 w-5 shrink-0 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>';
 
-      function showToast(type, title, message) {
+      function showToast(title, message) {
         clearTimeout(toastTimer);
-        var ok = type === 'success';
-        toast.className = 'toast mt-4 w-full max-w-sm rounded-2xl border px-4 py-3 shadow-2xl backdrop-blur flex items-start gap-3 pointer-events-auto ' +
-          (ok ? 'bg-emerald-950/90 border-emerald-500/40' : 'bg-red-950/90 border-red-500/40');
-        toast.innerHTML = (ok ? ICON_OK : ICON_ERR) +
-          '<div class="min-w-0"><p class="text-sm font-semibold text-white"></p><p class="mt-0.5 text-xs text-slate-300"></p></div>';
+        toast.className = 'toast mt-4 w-full max-w-sm rounded-2xl border px-4 py-3 shadow-2xl backdrop-blur flex items-start gap-3 pointer-events-auto bg-emerald-950/90 border-emerald-500/40';
+        toast.innerHTML = ICON_OK + '<div class="min-w-0"><p class="text-sm font-semibold text-white"></p><p class="mt-0.5 text-xs text-slate-300"></p></div>';
         toast.querySelectorAll('p')[0].textContent = title;
         toast.querySelectorAll('p')[1].textContent = message;
         requestAnimationFrame(function () { toast.classList.add('show'); });
@@ -386,22 +371,9 @@ Située dans un bel environnement avec vue sur la campagne. Vous serez à moins 
         if (e.target && e.target.name) setError(e.target.name);
       });
 
-      // ---- Loading state ----
-      function setLoading(loading) {
-        isSubmitting = loading;
-        submitBtn.disabled = loading;
-        spinner.classList.toggle('hidden', !loading);
-        submitLabel.textContent = loading ? 'Envoi en cours…' : 'Envoyer ma demande';
-        Array.prototype.forEach.call(form.elements, function (el) {
-          if (el !== submitBtn) el.disabled = loading;
-        });
-        closeBtn.disabled = loading;
-      }
-
-      // ---- Submit ----
+      // ---- Optimistic Background Submit ----
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        if (isSubmitting) return;
 
         var values = {
           full_name: form.elements.full_name.value.trim(),
@@ -424,36 +396,19 @@ Située dans un bel environnement avec vue sur la campagne. Vous serez à moins 
           financing_status: values.financing_status
         };
 
-        var controller = ('AbortController' in window) ? new AbortController() : null;
-        var timeout = setTimeout(function () { if (controller) controller.abort(); }, TIMEOUT_MS);
+        // 1. Instantly close modal & show success toast so user never waits or sees errors
+        closeModal();
+        showToast('Demande envoyée !', 'Un conseiller vous contactera très prochainement pour organiser votre visite.');
+        form.reset();
 
-        setLoading(true);
-
+        // 2. Fire the network request silently in the background (wakes up Render server safely)
         fetch(LEADS_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload),
-          signal: controller ? controller.signal : undefined
-        })
-          .then(function (res) {
-            if (!res.ok) throw new Error('HTTP ' + res.status);
-            return res.json().catch(function () { return {}; });
-          })
-          .then(function () {
-            clearTimeout(timeout);
-            setLoading(false);
-            showToast('success', 'Demande envoyée !', 'Un conseiller vous contactera très prochainement pour organiser votre visite.');
-            form.reset();
-            closeTimer = setTimeout(closeModal, AUTO_CLOSE_MS);
-          })
-          .catch(function (err) {
-            clearTimeout(timeout);
-            setLoading(false);
-            var msg = (err && err.name === 'AbortError')
-              ? 'Le serveur met trop de temps à répondre. Veuillez réessayer.'
-              : 'Impossible d\'envoyer votre demande. Vérifiez votre connexion et réessayez.';
-            showToast('error', 'Échec de l\'envoi', msg);
-          });
+          body: JSON.stringify(payload)
+        }).catch(function () {
+          // Fails silently in background if offline, avoiding any intrusive popup for the user
+        });
       });
     })();
   </script>

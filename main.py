@@ -40,6 +40,7 @@ import smtplib
 import ssl
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
+from email.header import Header
 from email.message import EmailMessage
 from functools import lru_cache
 from pathlib import Path
@@ -292,7 +293,11 @@ def build_alert_email(lead: LeadPayload, claims: RoutingClaims) -> EmailMessage:
     received_at = datetime.now(PARIS).strftime("%d/%m/%Y à %H:%M")
     msg = EmailMessage()
     msg["Subject"] = f"Nouveau lead · Réf. {claims.property_ref} · {lead.full_name}"
-    msg["From"] = settings.smtp_from
+    
+    sender_name = "ImmoLead Notifications"
+    sender_email = settings.smtp_from
+    msg["From"] = Header(f"{sender_name} <{sender_email}>", "utf-8")
+    
     msg["To"] = str(claims.agency_email)
     msg["Reply-To"] = str(lead.email)
     msg.set_content(_render_text(lead, claims, received_at))
